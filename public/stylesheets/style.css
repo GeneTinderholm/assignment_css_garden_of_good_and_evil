@@ -30,3 +30,8 @@ a {
 .yellow {
 	background-color: yellow;
 }
+
+#mainContent{
+	background-color: white;
+	margin-top:50px;
+}
