@@ -1,9 +1,23 @@
 var express = require('express');
 var router = express.Router();
 
+const cookieParser = require('cookie-parser');
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+	res.render('index', { title: 'Express' });
+	console.log(req.cookies.favorites || 'No favorites');
+});
+
+router.post('/', function(req, res, next) {
+	let infoObj = {};
+	infoObj.good_evil = req.body.good_evil;
+	infoObj.colors = req.body.colors;
+	infoObj.favFood = req.body.favFood;
+	infoObj.insanity = req.body.insanity;
+	console.log(infoObj);
+	res.cookie('favorites', infoObj);
+	res.redirect('/');
 });
 
 module.exports = router;
