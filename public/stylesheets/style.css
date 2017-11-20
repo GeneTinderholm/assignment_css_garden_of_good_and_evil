@@ -8,7 +8,7 @@ a {
 }
 
 .good {
-	background-color: blue;
+	background-color: lightskyblue;
 }
 
 .evil {
@@ -34,4 +34,16 @@ a {
 #mainContent{
 	background-color: white;
 	margin-top:50px;
+	border-radius:10px;
+	margin-right: 40px;
+	margin-left:40px;
+	padding-bottom:10px;
+}
+h2{
+	margin-top: 25px;
+}
+#formContainer{
+	background-color: white;
+	padding: 50px;
+	border-radius:10px;
 }

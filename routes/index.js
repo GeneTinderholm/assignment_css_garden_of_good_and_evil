@@ -19,9 +19,12 @@ router.get('/', function(req, res, next) {
 		insane_friends = `You have ${
 			insanity
 		} unicorn friends. You are not insane!`;
-	} else {
+	} else if(insanity > 5){
 		insane_friends = `You have ${insanity} unicorn friends. You are insane!!`;
+	} else {
+		insane_friends = '';
 	}
+
 	let likes = [];
 	let dislikes = [];
 	//fill likes
@@ -87,6 +90,8 @@ router.get('/', function(req, res, next) {
 	if(!select_colors || !goodEvil){
 		resume = "You need to fill out the form before we can give you your resume.";
 	}
+
+	test = (infoObj.good_evil && infoObj.colors && infoObj.favFood && infoObj.insanity);
 	res.render('index', {
 		goodEvil: goodEvil,
 		select_colors: select_colors,
@@ -94,7 +99,8 @@ router.get('/', function(req, res, next) {
 		likes: likes,
 		dislikes: dislikes,
 		biography: biography,
-		resume: resume
+		resume: resume,
+		test: test
 	});
 	console.log(req.cookies.favorites || 'No favorites');
 });

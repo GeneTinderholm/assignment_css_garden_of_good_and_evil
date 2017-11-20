@@ -1,15 +1,16 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
-
 <form method = "post" action = '/'>
   <!--Radio group-->
-<div class="form-group ">
+  <div class='container' id='formContainer'>
+  <div class='form-check form-check-inline'>
     <input name="good_evil" type="radio" id="good" value='good'>
     <label for="good_evil">Good</label>
+  </div>
+    <div class='form-check form-check-inline'>
     <input name="good_evil" type="radio" id="evil" value='evil'>
     <label for="good_evil">Evil</label><br>
-	<input name="favFood" type="text" placeholder="Favorite Food">
-<div class = "{{select_colors}}">
+  </div>
+	<input class='form-control' name="favFood" type="text" placeholder="Favorite Food">
+<div class = "{{select_colors}} form-control">
   <select name="colors">
     <option value="red">Red</option>
     <option value="blue">Blue</option>
@@ -17,36 +18,41 @@
     <option value="yellow">Yellow</option>
     </select>
   </div>
-<div id="slidecontainer">
+<div id="slidecontainer" class='na'>
 	<label for='insanity'>How insane are you?</label>
-  <input name = "insanity" type="range" min="1" max="10" value="1" class="slider" id="insanitySlider">
+  <input name = "insanity" type="range" min="1" max="10" value="1" class="form-control" id="insanitySlider">
   {{insane_friends}}
 </div>
-	<input type="submit" value="Submit">
+	<input type="submit" class='btn' value="Submit">
 </div>
 </form>
 
+</div>
+{{#if test}}
 <div id='mainContentDiv' class="container">
 <ul class="list-group">
-<h2>Like</h2>
+<h2>Likes:</h2>
 {{#each likes as |like|}}
 <li class="list-group-item">{{like}}</li>
 {{/each}}
 </ul>
 <ul class = "list-group">
-  <h2>Dislikes</h2>
+  <h2>Dislikes:</h2>
   {{#each dislikes as |dislike|}}
   <li class = "list-group-item">{{dislike}}</li>
   {{/each}}
 </ul>
 <div class='row'>
-<div id='mainContent' class='col-md-6'>
+<div id='mainContent' class='col-md-5 col-md-offset-0'>
   <h2>Your Biography</h2>
 {{biography}}
 </div>
-<div id='mainContent' class='col-md-6'>
+<div id='mainContent' class='col-md-5 col-md-offset-6'>
   <h2>Your Resume</h2>
 {{resume}}
 </div>
 </div>
 </div>
+{{^}}
+
+{{/if}}
