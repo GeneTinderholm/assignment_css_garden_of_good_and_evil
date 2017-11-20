@@ -9,19 +9,18 @@
     <input name="good_evil" type="radio" id="evil" value='evil'>
     <label for="good_evil">Evil</label><br>
 	<input name="favFood" type="text" placeholder="Favorite Food">
-<div class="dropdown">
-  <button name = "colors" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Pick your favorite color
-  <span class="caret"></span></button>
-  <ul class="dropdown-menu">
-    <li><a href="#">Red</a></li>
-    <li><a href="#">Blue</a></li>
-    <li><a href="#">Green</a></li>
-  </ul>
-</div>
-
+<div class = "{{select_colors}}">
+  <select name="colors">
+    <option value="red">Red</option>
+    <option value="blue">Blue</option>
+    <option value="green">Green</option>
+    <option value="yellow">Yellow</option>
+    </select>
+  </div>
 <div id="slidecontainer">
 	<label for='insanity'>How insane are you?</label>
   <input name = "insanity" type="range" min="1" max="10" value="1" class="slider" id="insanitySlider">
+  {{insane_friends}}
 </div>
 	<input type="submit" value="Submit">
 </div>
@@ -30,9 +29,14 @@
 <div id='mainContentDiv' class="container">
 	<ul class="list-group">
 	{{#each likes as |like|}}
-  <li class="list-group-item">{{like.name}}</li>
+  <li class="list-group-item">{{like}}</li>
   {{/each}}
 </ul>
+  <ul class = "list-group">
+    {{#each dislikes as |dislike|}}
+    <li class = "list-group-item">{{dislike}}</li>
+    {{/each}}
+  </ul>
 </div>
 
 {{biography}}
