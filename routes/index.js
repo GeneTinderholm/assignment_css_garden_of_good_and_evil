@@ -5,16 +5,16 @@ const cookieParser = require('cookie-parser');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-	let infoObj = req.cookies.favorites;
+	let infoObj = req.cookies.favorites || {};
 	let goodEvil;
-	if(typeof infoObj.good_evil !== 'undefined'){
-		goodEvil = infoObj.good_evil;
+ 	if(typeof infoObj.good_evil !== 'undefined'){
+ 		goodEvil = infoObj.good_evil;
 	} else {
 		goodEvil = 'default';
 	}
-	res.render('index', { goodEvil: goodEvil });
-	console.log(req.cookies.favorites || 'No favorites');
-});
+ 	res.render('index', { goodEvil: goodEvil });
+ 	console.log(req.cookies.favorites || 'No favorites');
+ });
 
 router.post('/', function(req, res, next) {
 	let infoObj = {};
